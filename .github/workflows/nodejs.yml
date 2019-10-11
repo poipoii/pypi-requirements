@@ -48,7 +48,7 @@ jobs:
     - name: Deploy site to gh-pages branch
       # uses: maxheld83/ghpages@v1.0.0
       uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
-      env:
+      with:
         site-directory : dist/pypi-requirements
         repo-token: ${{ secrets.GH_PAT }}
-        commit-message: $GITHUB_SHA
+        commit-message: GITHUB_SHA

@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'pypi-requirements';
+  title = `pypi-requirements ${ environment.version }`;
   direction = 'horizontal';
 
   theme = 'chaos';
