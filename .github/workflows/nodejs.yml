@@ -1,0 +1,54 @@
+name: Node CI
+
+on:
+  push:
+    branches:
+      - '*'
+  release:
+    types: [published]
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: npm test
+      run: |
+        # install packages
+        npm install
+        # run lint, test
+        npm run lint || true
+      env:
+        CI: true
+
+  release:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'published'
+    needs: test
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: npm install and build
+      run: |
+        # install packages
+        npm install
+        # run build prod
+        npm run build:prod
+    - name: Deploy site to gh-pages branch
+      # uses: maxheld83/ghpages@v1.0.0
+      uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
+      env:
+        site-directory : dist/pypi-requirements
+        repo-token: ${{ secrets.GH_PAT }}
+        commit-message: $GITHUB_SHA

@@ -1,0 +1,27 @@
+.ace_editor {
+  min-height: 200px;
+  height: 100% !important;
+  width: 100%;
+  overflow: auto;
+}
+
+.mat-divider {
+  margin: 10px 0;
+}
+
+.mat-drawer-container {
+  height: 100%;
+}
+
+.position-fixed {
+  position: fixed
+}
+
+.mat-spacer {
+  flex: 1 1 auto;
+}
+
+.content {
+  margin-top: 58px;
+  height: calc(100% - 58px);
+}
