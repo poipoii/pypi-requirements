@@ -1,7 +1,14 @@
 <mat-sidenav-container>
   <mat-sidenav-content>
     <mat-toolbar color="primary" class="position-fixed">
-        <button mat-raised-button (click)="checkInputPackages()">Check</button>
+        <button mat-raised-button (click)="checkInputPackages()">
+          <mat-icon>autorenew</mat-icon>
+          Check
+        </button>
+        <button mat-raised-button (click)="copyOutputPackages()">
+          <mat-icon>done_all</mat-icon>
+          Copy
+        </button>
       <span class="mat-spacer"></span>
       <span>{{ title }}</span>
     </mat-toolbar>

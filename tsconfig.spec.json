@@ -13,6 +13,11 @@
   ],
   "include": [
     "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "node_modules/ng2-ace-editor/*.ts",
+    "node_modules/ng2-ace-editor/src/*.ts"
+  ],
+  "exclude": [
+    "node_modules/ng2-ace-editor/dist"
   ]
 }
