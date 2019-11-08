@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PypiService } from './pypi.service';
-import { ClipboardService } from 'ngx-clipboard'
+import { ClipboardService } from 'ngx-clipboard';
 import { MatSnackBar } from '@angular/material';
 import { forkJoin } from 'rxjs';
 import { environment as env } from 'src/environments/environment';

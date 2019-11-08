@@ -1,11 +1,11 @@
 {
   "name": "pypi-requirements",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --prod --deploy-url=/pypi-requirements/",
+    "build:prod": "ng build --prod --base-href=/pypi-requirements/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

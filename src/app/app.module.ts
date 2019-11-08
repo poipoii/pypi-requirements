@@ -37,7 +37,7 @@ import { environment } from '../environments/environment';
 
     AceEditorModule,
     ClipboardModule,
-  
+
     AngularSplitModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
