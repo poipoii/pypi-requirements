@@ -51,4 +51,3 @@ jobs:
       with:
         site-directory : dist/pypi-requirements
         repo-token: ${{ secrets.GH_PAT }}
-        commit-message: GITHUB_SHA

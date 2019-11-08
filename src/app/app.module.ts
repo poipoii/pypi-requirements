@@ -1,17 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
   MatButtonModule,
-  MatToolbarModule,
+  MatIconModule,
   MatSidenavModule,
+  MatSnackBarModule,
+  MatToolbarModule,
 } from '@angular/material';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { AngularSplitModule } from 'angular-split';
+import { ClipboardModule } from 'ngx-clipboard';
+
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -24,11 +30,16 @@ import { AngularSplitModule } from 'angular-split';
     HttpClientModule,
 
     MatButtonModule,
-    MatToolbarModule,
+    MatIconModule,
     MatSidenavModule,
+    MatSnackBarModule,
+    MatToolbarModule,
 
     AceEditorModule,
+    ClipboardModule,
+  
     AngularSplitModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
