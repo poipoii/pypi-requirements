@@ -1,7 +1,8 @@
-import { Component, AfterContentInit } from '@angular/core';
+import { Component, AfterContentInit, OnInit } from '@angular/core';
+import { SwUpdate } from '@angular/service-worker';
+import { MatSnackBar } from '@angular/material';
 import { PypiService } from './pypi.service';
 import { ClipboardService } from 'ngx-clipboard';
-import { MatSnackBar } from '@angular/material';
 import { forkJoin } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
 import AceDiff from 'ace-diff/src/index';
@@ -15,7 +16,7 @@ import 'brace/mode/python';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterContentInit {
+export class AppComponent implements OnInit, AfterContentInit {
   title = `pypi-requirements ${ env.version }`;
 
   theme = 'chaos';
@@ -31,10 +32,22 @@ export class AppComponent implements AfterContentInit {
     private clipboardService: ClipboardService,
     private pypiService: PypiService,
     private snackBar: MatSnackBar,
+    private swUpdate: SwUpdate,
   ) {
     if (!env.production) {
       this.inputPackages = `Django==1.11.15\nDjango==2.2.7\ndjango-allauth==0.38.0`;
     }
+  }
+
+  ngOnInit() {
+    this.swUpdate.available.subscribe(event => {
+      console.log('[App] Update available: current version is', event.current, 'available version is', event.available);
+      setTimeout(() => {
+        this.snackBar.open('Newer version is available!', 'Refresh').onAction().subscribe(() => {
+          window.location.reload();
+        });
+      }, 100);
+    });
   }
 
   ngAfterContentInit() {

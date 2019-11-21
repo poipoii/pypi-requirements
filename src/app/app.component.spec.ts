@@ -2,8 +2,10 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { AppComponent } from './app.component';
 import { MatSnackBarModule } from '@angular/material';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
+import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   let app: AppComponent;
@@ -16,6 +18,7 @@ describe('AppComponent', () => {
         RouterTestingModule,
         HttpClientModule,
         MatSnackBarModule,
+        ServiceWorkerModule.register('/ngsw-worker.js', { enabled: false })
       ],
       declarations: [
         AppComponent
