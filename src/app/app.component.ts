@@ -78,6 +78,7 @@ export class AppComponent implements OnInit, AfterContentInit {
   }
 
   checkInputPackages() {
+    this.inputPackages = this.aceInstance.getEditors().left.getValue();
     this.onChange(this.inputPackages);
   }
 
