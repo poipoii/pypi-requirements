@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, AfterContentInit } from '@angular/core';
 import { PypiService } from './pypi.service';
 import { ClipboardService } from 'ngx-clipboard';
 import { MatSnackBar } from '@angular/material';
 import { forkJoin } from 'rxjs';
 import { environment as env } from 'src/environments/environment';
+import AceDiff from 'ace-diff/src/index';
 
 import 'brace/index';
 import 'brace/theme/chaos';
@@ -14,17 +15,17 @@ import 'brace/mode/python';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterContentInit {
   title = `pypi-requirements ${ env.version }`;
-  direction = 'horizontal';
 
   theme = 'chaos';
   mode = 'python';
   inputPackages = '';
   outputPackages = '';
-  options: any = { maxLines: 1000, printMargin: false };
 
   packages = [];
+
+  aceInstance;
 
   constructor(
     private clipboardService: ClipboardService,
@@ -32,8 +33,35 @@ export class AppComponent {
     private snackBar: MatSnackBar,
   ) {
     if (!env.production) {
-      this.inputPackages = `Django==1.11.15\ndjango-allauth==0.38.0`;
+      this.inputPackages = `Django==1.11.15\nDjango==2.2.7\ndjango-allauth==0.38.0`;
     }
+  }
+
+  ngAfterContentInit() {
+    // init
+    this.aceInstance = new AceDiff({
+      mode: `ace/mode/${this.mode}`,
+      theme: `ace/theme/${this.theme}`,
+      diffGranularity: 'specific',
+      element: '.acediff',
+      left: {
+        content: this.inputPackages,
+        editable: true,
+        copyLinkEnabled: true
+      },
+      right: {
+        content: this.outputPackages,
+        editable: true,
+        copyLinkEnabled: true
+      },
+    });
+    // update font
+    const fontOptions = {
+      // fontFamily: 'tahoma',
+      fontSize: '12pt'
+    };
+    this.aceInstance.getEditors().left.setOptions(fontOptions);
+    this.aceInstance.getEditors().right.setOptions(fontOptions);
   }
 
   checkInputPackages() {
@@ -67,6 +95,14 @@ export class AppComponent {
           }
           return `${latestPackage.info.name}==${latestPackage.info.version}`;
         }).join('\n');
+        // update value
+        this.aceInstance.getEditors().left.setValue(this.inputPackages);
+        this.aceInstance.getEditors().right.setValue(this.outputPackages);
+        // detect diff change
+        this.aceInstance.diff();
+        // clear selection
+        this.aceInstance.getEditors().left.getSession().selection.clearSelection();
+        this.aceInstance.getEditors().right.getSession().selection.clearSelection();
       },
       error => {
         console.error(error);

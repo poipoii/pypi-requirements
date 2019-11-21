@@ -14,7 +14,6 @@ import {
   MatToolbarModule,
 } from '@angular/material';
 import { AceEditorModule } from 'ng2-ace-editor';
-import { AngularSplitModule } from 'angular-split';
 import { ClipboardModule } from 'ngx-clipboard';
 
 import { environment } from '../environments/environment';
@@ -38,7 +37,6 @@ import { environment } from '../environments/environment';
     AceEditorModule,
     ClipboardModule,
 
-    AngularSplitModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],

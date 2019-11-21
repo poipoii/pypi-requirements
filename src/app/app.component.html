@@ -18,26 +18,7 @@
     </mat-toolbar>
 
     <div class="content">
-        <as-split unit="percent" [direction]="direction" #split="asSplit">
-            <as-split-area size="50" #area1="asSplitArea">
-              <div ace-editor
-                    [(text)]="inputPackages"
-                    [mode]="mode"
-                    [theme]="theme"
-                    [options]="options"
-                    [readOnly]="false"
-                    [autoUpdateContent]="true"></div>
-            </as-split-area>
-            <as-split-area size="50" #area2="asSplitArea">
-                <div ace-editor
-                      [(text)]="outputPackages"
-                      [mode]="mode"
-                      [theme]="theme"
-                      [options]="options"
-                      [readOnly]="true"
-                      [autoUpdateContent]="true"></div>
-            </as-split-area>
-          </as-split>
+      <div class="acediff"></div>
     </div>
 
   </mat-sidenav-content>

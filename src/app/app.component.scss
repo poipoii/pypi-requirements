@@ -27,8 +27,13 @@
 .content {
   margin-top: 46px;
   height: calc(100% - 46px);
+  position: relative;
 }
 
 .mat-toolbar {
   height: 46px;
+}
+
+::ng-deep .acediff__copy--left div, ::ng-deep .acediff__copy--right div {
+  margin-top: -1px !important;
 }
