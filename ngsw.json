@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1573201047950,
+  "timestamp": 1574325261185,
   "index": "/pypi-requirements/index.html",
   "assetGroups": [
     {
@@ -10,15 +10,14 @@
       "urls": [
         "/pypi-requirements/favicon.ico",
         "/pypi-requirements/index.html",
-        "/pypi-requirements/main-es2015.39c2bdb0d85615f4fe8d.js",
-        "/pypi-requirements/main-es5.39c2bdb0d85615f4fe8d.js",
+        "/pypi-requirements/main-es2015.294d87652e6532073ba6.js",
+        "/pypi-requirements/main-es5.294d87652e6532073ba6.js",
         "/pypi-requirements/manifest.webmanifest",
         "/pypi-requirements/polyfills-es2015.2987770fde9daa1d8a2e.js",
         "/pypi-requirements/polyfills-es5.6696c533341b95a3d617.js",
         "/pypi-requirements/runtime-es2015.edb2fcf2778e7bf1d426.js",
         "/pypi-requirements/runtime-es5.edb2fcf2778e7bf1d426.js",
-        "/pypi-requirements/scripts.6842942bccbac6e8107d.js",
-        "/pypi-requirements/styles.bdee0a91f96883de21d8.css"
+        "/pypi-requirements/styles.20d5b7626697c55bd493.css"
       ],
       "patterns": []
     },
@@ -56,16 +55,15 @@
     "/pypi-requirements/assets/mstile-150x150.png": "421b0d5837cf7c29772bc03ec68b6eeea9d314d6",
     "/pypi-requirements/assets/safari-pinned-tab.svg": "c65238cc5141e53bd8802bc0b175089a62aaf67a",
     "/pypi-requirements/favicon.ico": "ab38b8bcd47386aaf726c4d8785230c9f996d484",
-    "/pypi-requirements/index.html": "792eb7037d92a0b42468c908b76109f86c6d5401",
-    "/pypi-requirements/main-es2015.39c2bdb0d85615f4fe8d.js": "ab7e5c0bfd39204b592c2ead8c92dabcb9ea801e",
-    "/pypi-requirements/main-es5.39c2bdb0d85615f4fe8d.js": "2068788180e6cad87884f6041b7acc4ae3c38a44",
+    "/pypi-requirements/index.html": "12c43b9a5c286888b7a323bb788c7550f8946e39",
+    "/pypi-requirements/main-es2015.294d87652e6532073ba6.js": "f63cb3527d483e3527c40dbb45eda5c7638e5c17",
+    "/pypi-requirements/main-es5.294d87652e6532073ba6.js": "c36500e415faf7f30c5f6395f3b0b6b36a23842d",
     "/pypi-requirements/manifest.webmanifest": "5576cfc37d2ebe0b01e4c3df2dad97badb6aa166",
     "/pypi-requirements/polyfills-es2015.2987770fde9daa1d8a2e.js": "cf5cbfa9134716054fb479ab21362146cdf1f2ff",
     "/pypi-requirements/polyfills-es5.6696c533341b95a3d617.js": "45c51483238468881240579c3fdecd19144cff17",
     "/pypi-requirements/runtime-es2015.edb2fcf2778e7bf1d426.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/pypi-requirements/runtime-es5.edb2fcf2778e7bf1d426.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/pypi-requirements/scripts.6842942bccbac6e8107d.js": "811a26a74f34b4da291363a27d21787c9af38eca",
-    "/pypi-requirements/styles.bdee0a91f96883de21d8.css": "fc7c1b5298c8c1c724cd7397ddc75b6f4650693f"
+    "/pypi-requirements/styles.20d5b7626697c55bd493.css": "286f8276dfea3e0912a68ebf8ff168c67ce76171"
   },
   "navigationUrls": [
     {
