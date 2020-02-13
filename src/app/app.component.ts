@@ -104,7 +104,7 @@ export class AppComponent implements OnInit, AfterContentInit {
       latestPackages => {
         this.packages = latestPackages;
         this.outputPackages = latestPackages.map((latestPackage: any) => {
-          if (typeof(latestPackage) === 'string' && latestPackage.startsWith('#')) {
+          if (typeof(latestPackage) === 'string' && (latestPackage.startsWith('#') || latestPackage.startsWith('-e'))) {
             return latestPackage;
           }
           return `${latestPackage.info.name}==${latestPackage.info.version}`;
