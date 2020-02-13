@@ -96,7 +96,7 @@ export class AppComponent implements OnInit, AfterContentInit {
     const packages = lines.map(line => {
       const info = line && line.indexOf('==') > 0 ? line.split('==') : [line, ''];
       return {
-        name: info[0],
+        name: PypiService.isIgnoreLine(info[0]) ? line : info[0],
         version: info[1],
       };
     });
@@ -104,7 +104,7 @@ export class AppComponent implements OnInit, AfterContentInit {
       latestPackages => {
         this.packages = latestPackages;
         this.outputPackages = latestPackages.map((latestPackage: any) => {
-          if (typeof(latestPackage) === 'string' && (latestPackage.startsWith('#') || latestPackage.startsWith('-e'))) {
+          if (PypiService.isIgnoreLine(latestPackage)) {
             return latestPackage;
           }
           return `${latestPackage.info.name}==${latestPackage.info.version}`;
