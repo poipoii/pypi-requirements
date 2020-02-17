@@ -17,7 +17,7 @@ import 'brace/mode/python';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterContentInit {
-  title = `pypi-requirements ${ env.version }`;
+  title = `v${ env.version }`;
 
   theme = 'chaos';
   mode = 'python';
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit, AfterContentInit {
 
   packages = [];
 
-  aceInstance;
+  aceInstance: AceDiff;
 
   constructor(
     private clipboardService: ClipboardService,
@@ -60,21 +60,34 @@ export class AppComponent implements OnInit, AfterContentInit {
       left: {
         content: this.inputPackages,
         editable: true,
-        copyLinkEnabled: true
+        copyLinkEnabled: true,
       },
       right: {
         content: this.outputPackages,
         editable: true,
-        copyLinkEnabled: true
+        copyLinkEnabled: true,
       },
     });
     // update font
     const fontOptions = {
       // fontFamily: 'tahoma',
-      fontSize: '12pt'
+      fontSize: '12pt',
     };
     this.aceInstance.getEditors().left.setOptions(fontOptions);
     this.aceInstance.getEditors().right.setOptions(fontOptions);
+    // synchronous scrolling between two editors
+    this.aceInstance.getEditors().left.getSession().on('changeScrollTop', (scroll: any) => {
+      this.aceInstance.getEditors().right.getSession().setScrollTop(parseInt(scroll) || 0);
+    });
+    this.aceInstance.getEditors().left.getSession().on('changeScrollLeft', (scroll: any) => {
+      this.aceInstance.getEditors().right.getSession().setScrollLeft(parseInt(scroll) || 0);
+    });
+    this.aceInstance.getEditors().right.getSession().on('changeScrollTop', (scroll: any) => {
+      this.aceInstance.getEditors().left.getSession().setScrollTop(parseInt(scroll) || 0);
+    });
+    this.aceInstance.getEditors().right.getSession().on('changeScrollLeft', (scroll: any) => {
+      this.aceInstance.getEditors().left.getSession().setScrollLeft(parseInt(scroll) || 0);
+    });
   }
 
   checkInputPackages() {
