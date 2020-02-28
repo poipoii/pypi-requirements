@@ -1,6 +1,6 @@
 import { Component, AfterContentInit, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { PypiService } from './pypi.service';
 import { ClipboardService } from 'ngx-clipboard';
 import { forkJoin } from 'rxjs';
@@ -77,16 +77,16 @@ export class AppComponent implements OnInit, AfterContentInit {
     this.aceInstance.getEditors().right.setOptions(fontOptions);
     // synchronous scrolling between two editors
     this.aceInstance.getEditors().left.getSession().on('changeScrollTop', (scroll: any) => {
-      this.aceInstance.getEditors().right.getSession().setScrollTop(parseInt(scroll) || 0);
+      this.aceInstance.getEditors().right.getSession().setScrollTop(parseInt(scroll, 10) || 0);
     });
     this.aceInstance.getEditors().left.getSession().on('changeScrollLeft', (scroll: any) => {
-      this.aceInstance.getEditors().right.getSession().setScrollLeft(parseInt(scroll) || 0);
+      this.aceInstance.getEditors().right.getSession().setScrollLeft(parseInt(scroll, 10) || 0);
     });
     this.aceInstance.getEditors().right.getSession().on('changeScrollTop', (scroll: any) => {
-      this.aceInstance.getEditors().left.getSession().setScrollTop(parseInt(scroll) || 0);
+      this.aceInstance.getEditors().left.getSession().setScrollTop(parseInt(scroll, 10) || 0);
     });
     this.aceInstance.getEditors().right.getSession().on('changeScrollLeft', (scroll: any) => {
-      this.aceInstance.getEditors().left.getSession().setScrollLeft(parseInt(scroll) || 0);
+      this.aceInstance.getEditors().left.getSession().setScrollLeft(parseInt(scroll, 10) || 0);
     });
   }
 
