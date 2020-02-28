@@ -6,13 +6,11 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppComponent } from './app.component';
 
-import {
-  MatButtonModule,
-  MatIconModule,
-  MatSidenavModule,
-  MatSnackBarModule,
-  MatToolbarModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AceEditorModule } from 'ng2-ace-editor';
 import { ClipboardModule } from 'ngx-clipboard';
 
