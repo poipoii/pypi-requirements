@@ -2,6 +2,7 @@
   "name": "pypi-requirements",
   "version": "0.1.0",
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -48,14 +49,14 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
-    "minimist": "1.2.5",
     "protractor": "~5.4.0",
-    "serialize-javascript": "3.1.0",
     "ts-node": "8.7.0",
     "tslint": "~5.15.0",
     "typescript": "~3.7.5"
   },
   "resolutions": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "serialize-javascript": ">=3.1.0",
+    "yargs-parser": ">=13.1.2"
   }
 }
