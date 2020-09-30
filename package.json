@@ -56,6 +56,7 @@
   },
   "resolutions": {
     "minimist": "^1.2.5",
+    "node-forge": ">=0.10.0",
     "serialize-javascript": ">=3.1.0",
     "yargs-parser": ">=13.1.2"
   }
